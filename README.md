@@ -43,7 +43,7 @@ asciidoctor:
 Note that we also renamed `index.html` to `index.adoc` and modified this file accordingly in order to leverage AsciiDoc.
 
 ### Use the action
-Use the `helaili/jekyll-action@master` action in your workflow file. It needs access to a `JEKYLL_PAT` secret set with a Personal Access Token. The directory where the Jekyll site lives will be detected (based on the location of `_config.yml`) but you can also explicitly set this directory by setting the `jekyll_src` parameter (`sample_site` for us). The `SRC` environment variable is also supported for backward compatibilty but it is deprecated.
+Use the `jp-rad/jekyll-action@plantuml` action in your workflow file. It needs access to a `JEKYLL_PAT` secret set with a Personal Access Token. The directory where the Jekyll site lives will be detected (based on the location of `_config.yml`) but you can also explicitly set this directory by setting the `jekyll_src` parameter (`sample_site` for us). The `SRC` environment variable is also supported for backward compatibilty but it is deprecated.
 
 Use the `actions/cache` action in the workflow as well, to shorten build times and decrease load on GitHub's servers
 
@@ -68,12 +68,12 @@ jobs:
           ${{ runner.os }}-gems-
 
     # Standard usage
-    - uses:  helaili/jekyll-action@2.0.1
+    - uses:  jp-rad/jekyll-action@2.0.3-plantuml
       env:
         JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
     
     # Specify the Jekyll source location as a parameter
-    - uses: helaili/jekyll-action@2.0.1
+    - uses: jp-rad/jekyll-action@2.0.3-plantuml
       env:
         JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
       with:
